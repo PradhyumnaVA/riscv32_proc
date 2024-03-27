@@ -1,0 +1,58 @@
+LOAD :begin
+        case(funct3)
+        3'b000:
+        begin
+            mem_write<=0;
+            reg_write<=1;
+            ALUcontrol<=4'b0000;
+            ImmSrc<=2'b00;
+            ALUSrc<=1;
+            ResultSrc<=2'b01;
+            PCsrc <= 0;
+            load <= 3'b000;
+        end
+        3'b001:
+        begin
+            mem_write<=0;
+            reg_write<=1;
+            ALUcontrol<=4'b0000;
+            ImmSrc<=2'b00;
+            ALUSrc<=1;
+            ResultSrc<=2'b01;
+            PCsrc <= 0;
+            load <= 3'b001;
+        end
+        3'b010:
+        begin
+            mem_write<=0;
+            reg_write<=1;
+            ALUcontrol<=4'b0000;
+            ImmSrc<=2'b00;
+            ALUSrc<=1;
+            ResultSrc<=2'b01;
+            PCsrc <= 0;
+            load <= 3'b010;
+        end
+        3'b100:
+        begin
+            mem_write<=0;
+            reg_write<=1;
+            ALUcontrol<=4'b0000;
+            ImmSrc<=2'b00;
+            ALUSrc<=1;
+            ResultSrc<=2'b01;
+            PCsrc <= 0;
+            load <= 3'b011;
+        end
+        3'b101:
+        begin
+            mem_write<=0;
+            reg_write<=1;
+            ALUcontrol<=4'b0000;
+            ImmSrc<=2'b00;
+            ALUSrc<=1;
+            ResultSrc<=2'b01;
+            PCsrc <= 0;
+            load <= 3'b100;
+        end
+    end
