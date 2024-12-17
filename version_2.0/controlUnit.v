@@ -35,16 +35,16 @@ always @(funct3,funct7,op,Zflag) begin
             case (funct3)
                 0: begin
                     if (funct7 == 7'd32) begin
-                        ALUcontrol <= 4'b0001;
+                        ALUcontrol <= 4'b0001; // subtract
                     end
-                    else ALUcontrol <= 4'b0000;
+                    else ALUcontrol <= 4'b0000; // add
                 end
-                7: ALUcontrol <= 4'b0010;
-                6: ALUcontrol <= 4'b0011;
-                1: ALUcontrol <= 4'b0100;
-                5: ALUcontrol <= 4'b0101;
-                4: ALUcontrol <= 4'b0111;
-                2: ALUcontrol <= 4'b1000; 
+                1: ALUcontrol <= 4'b0100; // shift less logical
+                2: ALUcontrol <= 4'b1000; // set less than
+                4: ALUcontrol <= 4'b0111; // xor
+                5: ALUcontrol <= 4'b0101; // shift right logical
+                6: ALUcontrol <= 4'b0011; // or
+                7: ALUcontrol <= 4'b0010; // and
             endcase
         end
 
@@ -100,12 +100,12 @@ always @(funct3,funct7,op,Zflag) begin
             PCsrc <= 2'b00;
             case (funct3)
                 0: ALUcontrol <= 4'b0000; //addi 
-                1: ALUcontrol <= 4'b0100; //slli shift left imm 
-                2: ALUcontrol <= 4'b1000; //slti set less than imm
-                4: ALUcontrol <= 4'b0111; //xori xor imm
-                5: ALUcontrol <= 4'b0101; //srli shift right imm
-                6: ALUcontrol <= 4'b0011; //ori or imm
-                7: ALUcontrol <= 4'b0010; //andi and imm                
+                1: ALUcontrol <= 4'b0100; //slli - shift left imm 
+                2: ALUcontrol <= 4'b1000; //slti - set less than imm
+                4: ALUcontrol <= 4'b0111; //xori - xor imm
+                5: ALUcontrol <= 4'b0101; //srli - shift right imm
+                6: ALUcontrol <= 4'b0011; //ori  - or imm
+                7: ALUcontrol <= 4'b0010; //andi - and imm                
             endcase
         end
 
